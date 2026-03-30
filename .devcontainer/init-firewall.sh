@@ -118,7 +118,8 @@ for domain in \
     "workers.cloudflare.com" \
     "api.cloudflare.com" \
     "dash.cloudflare.com" \
-    "json.schemastore.org"; do
+    "json.schemastore.org" \
+    "jura.ku.dk"; do
     echo "Resolving $domain..."
     ips=$(dig +noall +answer A "$domain" | awk '$4 == "A" {print $5}')
     if [ -z "$ips" ]; then

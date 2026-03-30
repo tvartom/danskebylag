@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   dnsutils \
   aggregate \
   jq \
+  poppler-utils \
 #  nano \
 #  vim \
   mc \
