@@ -87,3 +87,19 @@ Use **camelCase** for prop bindings and event listeners, and **shorthand** when 
 ### Cloudflare Pages Build Configuration
 
 The `apps/web` Nuxt app deploys to Cloudflare Pages. The Nitro preset is `cloudflare_pages`, which generates a `_worker.js` bundle inside the output directory so CF Pages can discover the SSR worker without needing to find `wrangler.jsonc` (important in a monorepo where the config is in a subdirectory).
+
+## Project: Danske Bylag
+
+This project presents the book *Danske Bylag* (Poul Meyer, 1949) as a static website with three views per chapter: original Danish text, Swedish translation, and Swedish summary.
+
+- **PDF source:** `https://jura.ku.dk/jurabog/pdf/juridiske-monografier/Meyer_Dansk_bylag_1949.pdf`
+- **Roadmap:** See `ROADMAP.md` for task tracking
+- **Content pipeline:** See `docs/content-pipeline.md` for extraction/translation/review workflow
+- **Web architecture:** See `docs/web-architecture.md` for components, routes, and decisions
+
+### Working Principles
+
+- **Content-first:** Extract and structure all content before building the web UI
+- **Divide and conquer:** Translate one chapter at a time in dedicated subagents to keep context small
+- **Review before proceed:** Each chapter gets a review agent check before user approval
+- **No @nuxt/content:** Plain `.md` + `.ts` files rendered with `marked` — no SQLite dependency
