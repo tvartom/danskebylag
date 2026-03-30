@@ -8,6 +8,13 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    PrimeCard: typeof import('primevue/card')['default']
+    PrimeColumn: typeof import('primevue/column')['default']
+    PrimeDataTable: typeof import('primevue/datatable')['default']
+    PrimeInputText: typeof import('primevue/inputtext')['default']
+    PrimeTab: typeof import('primevue/tab')['default']
+    PrimeTabList: typeof import('primevue/tablist')['default']
+    PrimeTabPanel: typeof import('primevue/tabpanel')['default']
+    PrimeTabPanels: typeof import('primevue/tabpanels')['default']
+    PrimeTabs: typeof import('primevue/tabs')['default']
   }
 }

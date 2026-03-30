@@ -47,3 +47,11 @@ worker-configuration.d.ts
 
 # Playwright CLI temp files
 .playwright-cli/
+
+# Danske Bylag content pipeline intermediates
+source.pdf
+full-text.txt
+text/
+samples/
+*.png
+apps/web/content/chapters/*/raw.txt

@@ -21,6 +21,20 @@ export default defineNuxtConfig({
 
 	nitro: {
 		preset: 'cloudflare_pages',
+		prerender: {
+			crawlLinks: true,
+			routes: ['/'],
+		},
+	},
+
+	app: {
+		head: {
+			htmlAttrs: { lang: 'sv' },
+			title: 'Danske Bylag — Poul Meyer (1949)',
+			meta: [
+				{ name: 'description', content: 'Danske Bylag av Poul Meyer (1949) — original dansk text, svensk översättning och sammanfattning.' },
+			],
+		},
 	},
 
 	modules: ['@primevue/nuxt-module'],

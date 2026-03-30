@@ -1,27 +1,49 @@
-<template>
-  <div class="max-w-4xl mx-auto p-8 font-sans">
-    <h1 class="text-4xl font-bold text-primary mb-2">Welcome to danskebylag</h1>
-    <p class="text-muted-color text-lg mb-8">A Nuxt 4 + Cloudflare Pages app</p>
+<script setup lang="ts">
+import { chapters } from '~/content/chapters/index.js'
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <PrimeCard>
-        <template #title>Nuxt 4</template>
-        <template #content>
-          <p class="text-muted-color">Latest Nuxt with Cloudflare Pages</p>
-        </template>
-      </PrimeCard>
-      <PrimeCard>
-        <template #title>Tailwind CSS v4</template>
-        <template #content>
-          <p class="text-muted-color">Utility-first CSS framework</p>
-        </template>
-      </PrimeCard>
-      <PrimeCard>
-        <template #title>PrimeVue</template>
-        <template #content>
-          <p class="text-muted-color">Rich UI component library</p>
-        </template>
-      </PrimeCard>
-    </div>
+useHead({
+  title: 'Danske Bylag — Poul Meyer (1949)',
+})
+</script>
+
+<template>
+  <div class="max-w-3xl mx-auto px-4 py-12">
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl font-serif font-bold mb-2">Danske Bylag</h1>
+      <p class="text-lg text-muted-color">
+        En framställning af det danske landsbystyre
+      </p>
+      <p class="text-sm text-muted-color mt-1">Poul Meyer, 1949</p>
+    </header>
+
+    <section class="mb-8">
+      <p class="text-base leading-relaxed text-surface-700">
+        Denna webbplats presenterar Poul Meyers doktorsavhandling <em>Danske Bylag</em> (1949)
+        i tre vyer per kapitel: den danska originaltexten, en svensk översättning och en
+        strukturerad svensk sammanfattning.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-serif font-semibold mb-6">Innehållsförteckning</h2>
+      <ol class="space-y-3">
+        <li v-for="chapter in chapters" :key="chapter.slug">
+          <NuxtLink
+            :to="`/kapitel/${chapter.slug}`"
+            class="group flex items-baseline gap-3 hover:bg-surface-50 rounded-lg px-3 py-2 -mx-3 transition-colors"
+          >
+            <span class="text-sm text-muted-color w-8 shrink-0">
+              {{ chapter.number != null ? `${chapter.number}.` : '' }}
+            </span>
+            <span class="group-hover:text-primary">
+              {{ chapter.titleSv }}
+            </span>
+            <span class="text-xs text-muted-color ml-auto shrink-0">
+              s. {{ chapter.printedPages }}
+            </span>
+          </NuxtLink>
+        </li>
+      </ol>
+    </section>
   </div>
 </template>
