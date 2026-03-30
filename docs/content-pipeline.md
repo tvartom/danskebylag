@@ -147,13 +147,24 @@ This keeps each agent's context lean (~20-40K tokens) instead of loading the ent
 
 ### Translation guidelines
 
-- Write in **modern Swedish**
+#### Language & style
+- Write in **modern Swedish** — pedagogical, explanatory tone
 - **Never translate** person or place names
 - Keep Danish terms in *italics* at first occurrence, with Swedish explanation
+- **Legal terms** → stay close to the original (translation-near)
+- **Laws** → use exact terminology
 - Note ambiguous terms where Meyer uses a word in a specific legal sense
 - Be aware: 1940s Danish — some words/constructions may have changed meaning
 - Page references always use **printed page numbers**, not PDF page numbers
 - Preserve Meyer's argumentation structure
+
+#### Formatting for readability
+- **Use bullet lists** when the source text enumerates items — lists are much easier to read than inline enumerations
+- **Bold key concepts** at first occurrence, e.g. "Det viktigaste beslutande organet i byn var **bystævnet (bystämman)**."
+- **Never mix analysis with summary** — if a section contains analysis (beyond what the source text says), label it clearly as such
+
+#### Geographic names
+For every chapter, extract **all** geographic names (including härader, socknar, län, öar, byar, städer) from the `da.md` source text. Keep original Danish spelling. Sort by: länder / regioner / härader / socknar / orter, byar och städer / övrigt.
 
 ### Per-chapter output
 
@@ -163,22 +174,72 @@ Each translation agent produces:
    - Preserve all sections and paragraphs
    - Reference specific pages: (s. XX) or (s. XX–YY)
 
-2. **`summary.md`** — Structured Swedish summary:
-   ```markdown
-   ## Kapitel N: [Swedish chapter name] (s. XX–YY)
-   *Danskt original: [Danish chapter title]*
-
-   ### Sammanfattning
-   [Running text in Swedish with page references]
-
-   ### Begreppsnoter
-   **[Danish term]** — [Swedish translation/explanation] (s. XX)
-
-   ### Svåröversatta eller tvetydiga begrepp
-   [List terms requiring extra attention]
-   ```
+2. **`summary.md`** — Structured Swedish summary (see template below)
 
 3. **New glossary entries** — added to `glossary.ts`
+
+### `summary.md` template
+
+Every chapter's `summary.md` must follow this exact structure:
+
+```markdown
+## Kapitel X – [Swedish chapter title]
+
+## Kort kärna
+
+3–5 sentences giving the reader a quick overview of what the chapter covers
+before they read the longer text.
+
+## Historiskt sammanhang
+
+Brief section placing the chapter in its historical context —
+time period, societal structures, legal framework.
+
+## Sammanfattning av texten
+
+### X.I [Full section title]
+
+Pedagogical Swedish summary text. Length follows the priority rule
+(important sections get more space). All headings from the source
+must appear here.
+
+No original analysis in this section — everything must come from
+the source text.
+
+### X.II [Full section title]
+
+...
+
+## Nyckelbegrepp
+
+**Danskt begrepp** – svensk förklaring.
+En förklarande mening av begreppet på svenska.
+
+## Geografiska namn
+
+All geographic names mentioned in the chapter, in original language.
+Sorted by: länder / regioner / härader / socknar / orter, byar och
+städer / övrigt.
+
+## Begreppslistan
+
+**Oldermand – ålderman.**
+Bylagets valda ledare som ansvarade för att byns regler följdes.
+
+**Bystævne – bystämma.**
+Möte där alla bymän fattade gemensamma beslut.
+```
+
+#### Section notes
+
+| Section | Purpose |
+|---------|---------|
+| Kort kärna | 3–5 sentences — quick chapter preview |
+| Historiskt sammanhang | Historical context for the chapter's subject |
+| Sammanfattning av texten | Section-by-section summary using structure codes `[X.I, X.II …]` with full titles. No analysis, only source content. All source headings must appear. |
+| Nyckelbegrepp | Danish term + Swedish explanation + one explanatory sentence |
+| Geografiska namn | All places, regions, parishes, hundreds, islands etc. Original Danish spelling. |
+| Begreppslistan | Danish word – Swedish word + explanatory sentence (glossary style) |
 
 ---
 

@@ -107,7 +107,7 @@ layouts/default.vue
 - **`ChapterTabs.vue`** — PrimeVue `Tabs` component:
   - Tab 1: "Dansk original" → `<ChapterContent :markdown="da" lang="da" />`
   - Tab 2: "Svensk översättning" → `<ChapterContent :markdown="sv" lang="sv" />`
-  - Tab 3: "Sammanfattning" → `<ChapterContent :markdown="summary" lang="sv" />`
+  - Tab 3: "Sammanfattning" → `<ChapterContent :markdown="summary" lang="sv" />` (includes kort kärna, historiskt sammanhang, sammanfattning, nyckelbegrepp, geografiska namn, begreppslista)
 - **`ChapterContent.vue`** — Renders markdown to HTML, applies `prose` typography, sets `lang` attribute
 - **`ChapterNav.vue`** — Previous/Next chapter links
 

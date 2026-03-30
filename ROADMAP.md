@@ -44,8 +44,29 @@ The PDF is a 1949 scan — OCR quality is unknown. Before investing in cleanup a
 
 Each chapter follows: translate → review → approve → next.
 
-- [ ] Create translation guidelines file (`docs/translation-guidelines.md`)
 - [ ] Create initial glossary file (`apps/web/content/glossary.ts`)
+
+### Output structure per chapter
+
+Each chapter produces three files. The `summary.md` follows a strict template defined in `docs/content-pipeline.md`:
+
+1. **`sv.md`** — Full Swedish translation
+2. **`summary.md`** — Structured summary with these sections:
+   - **Kort kärna** — 3–5 sentence chapter preview
+   - **Historiskt sammanhang** — historical context
+   - **Sammanfattning av texten** — section-by-section summary (structure codes `[X.I, X.II …]`, all source headings, no analysis)
+   - **Nyckelbegrepp** — Danish term + Swedish explanation
+   - **Geografiska namn** — all geographic names in original Danish, sorted by type
+   - **Begreppslistan** — Danish–Swedish glossary with explanatory sentences
+3. **Glossary entries** — added to `glossary.ts`
+
+### Translation style
+
+- Modern Swedish, pedagogical tone
+- Legal terms and laws → translation-near, exact terminology
+- Bullet lists for enumerations, bold for key concepts
+- Never mix summary and analysis — label analysis sections explicitly
+- Geographic names: extract from `da.md`, keep Danish spelling
 
 ### Chapters (update after TOC extraction)
 
