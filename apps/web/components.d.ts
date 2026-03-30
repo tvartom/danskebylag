@@ -9,6 +9,5 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     PrimeCard: typeof import('primevue/card')['default']
-    PrimeTag: typeof import('primevue/tag')['default']
   }
 }

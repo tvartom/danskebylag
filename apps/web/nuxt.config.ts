@@ -21,13 +21,9 @@ export default defineNuxtConfig({
 
 	nitro: {
 		preset: 'cloudflare_pages',
-		// Configure nitro-cloudflare-dev to use shared persist path
-		cloudflareDev: {
-			persistDir: '../../.wrangler/state/v3',
-		},
 	},
 
-	modules: ['nitro-cloudflare-dev', '@primevue/nuxt-module'],
+	modules: ['@primevue/nuxt-module'],
 
 	primevue: {
 		options: {

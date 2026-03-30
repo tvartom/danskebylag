@@ -1,4 +1,4 @@
-# Cloudflare Monorepo Template
+# danskebylag
 
 A full-stack monorepo template for Cloudflare Pages + Workers with Nuxt 4, Drizzle ORM, and D1 database.
 
@@ -50,10 +50,10 @@ pnpm wrangler login
 
 ```bash
 # Create production database
-pnpm wrangler d1 create my-database
+pnpm wrangler d1 create danskebylag-database
 
 # Create preview database (for PR previews)
-pnpm wrangler d1 create my-database-preview
+pnpm wrangler d1 create danskebylag-database-preview
 ```
 
 Copy the returned `database_id` values and update the following files:

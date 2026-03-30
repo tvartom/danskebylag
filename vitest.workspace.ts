@@ -8,11 +8,4 @@ export default defineWorkspace([
 			include: ['src/**/*.test.ts'],
 		},
 	},
-	{
-		test: {
-			name: 'database',
-			root: './packages/database',
-			include: ['src/**/*.test.ts'],
-		},
-	},
 ])
