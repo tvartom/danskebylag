@@ -38,6 +38,7 @@ The PDF is a 1949 scan — OCR quality is unknown. Before investing in cleanup a
 - [ ] Fix OCR artifacts identified in quality report
 - [ ] Handle fraktur citations
 - [ ] Preserve paragraph structure, add markdown formatting
+- [ ] Mark unreadable or uncertain passages (e.g. unclear numbers, garbled characters from bad scanning) with a `[källa osäker]` note — never guess
 - [ ] Save cleaned text as `da.md` files
 
 ## Phase 2: Translation & Summary
@@ -60,13 +61,9 @@ Each chapter produces three files. The `summary.md` follows a strict template de
    - **Begreppslistan** — Danish–Swedish glossary with explanatory sentences
 3. **Glossary entries** — added to `glossary.ts`
 
-### Translation style
+### Translation approach
 
-- Modern Swedish, pedagogical tone
-- Legal terms and laws → translation-near, exact terminology
-- Bullet lists for enumerations, bold for key concepts
-- Never mix summary and analysis — label analysis sections explicitly
-- Geographic names: extract from `da.md`, keep Danish spelling
+Danish→Swedish translation that modernizes spelling and grammar while preserving all content, argumentation, and structure unchanged. Footnotes, Latin expressions, law names, and legal quotes are kept in original form. Full translation guidelines in `docs/content-pipeline.md` § Step 6.
 
 ### Chapters (update after TOC extraction)
 

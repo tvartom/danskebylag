@@ -129,6 +129,8 @@ Apply after OCR quality review passes. Per chapter:
 - [ ] Handle fraktur citations (use visual comparison where flagged)
 - [ ] Preserve paragraph structure
 - [ ] Add markdown formatting (headings, emphasis where appropriate)
+- [ ] Reproduce tables as markdown tables; if a figure or diagram appears, describe its content in a `[Figur: description]` block
+- [ ] Mark unreadable or uncertain passages (e.g. unclear numbers, garbled text) with a `[källa osäker]` note — never guess at what the source says
 - [ ] Save as `da.md` in the chapter directory
 
 ---
@@ -147,16 +149,47 @@ This keeps each agent's context lean (~20-40K tokens) instead of loading the ent
 
 ### Translation guidelines
 
+The translation converts 1940s Danish (`da.md`) into modern Swedish (`sv.md`). Modernization principles ensure faithfulness — no content is added, removed, or simplified. The result must be a complete, faithful translation, not a summary.
+
+#### Scope of modernization
+
+**Allowed changes:**
+- Modernize spelling and grammar to modern Swedish
+- Replace archaic formulations with modern equivalents
+- Correct obvious OCR errors during translation
+
+**Forbidden:**
+- Removing any information
+- Adding new information
+- Simplifying or abbreviating content
+- Interpreting or reformulating so that meaning changes
+
+All reasoning, examples, and details must be preserved. Text structure must follow the original as closely as possible.
+
+> **Scope note:** These rules apply to `sv.md` (the full translation). The `summary.md` follows its own template and is intentionally a condensed pedagogical overview — see template below.
+
 #### Language & style
-- Write in **modern Swedish** — pedagogical, explanatory tone
+- Write in **modern Swedish**
 - **Never translate** person or place names
-- Keep Danish terms in *italics* at first occurrence, with Swedish explanation
-- **Legal terms** → stay close to the original (translation-near)
-- **Laws** → use exact terminology
+- Keep Danish terms in *italics* at first occurrence, with Swedish explanation. After first explanation, use the term without italics or re-explanation, unless a reminder aids readability in a new context
+- **Legal terms** → translate as close to the original's legal meaning as possible
+- **Law names** → reproduce exactly as in original
 - Note ambiguous terms where Meyer uses a word in a specific legal sense
 - Be aware: 1940s Danish — some words/constructions may have changed meaning
+- If the Danish source text contains an uncertain or unreadable passage (marked `[källa osäker]`), preserve the marker in the translation — do not attempt to reconstruct the original
 - Page references always use **printed page numbers**, not PDF page numbers
 - Preserve Meyer's argumentation structure
+- Cross-references to other chapters should note the chapter number clearly (e.g., "se kapitel III"). These will be converted to internal links in Phase 3
+
+#### Special rules
+
+- **Legal text quotes:** Reproduce in original language, followed by Swedish translation
+- **Latin expressions:** Keep in original and translate in parentheses
+- **Footnotes:**
+  - Reproduce exactly as in the original text
+  - Footnote content is copied from the original — **not translated**
+  - Footnote number and text must be kept unchanged
+  - Format using markdown footnote syntax: `[^N]` in text, `[^N]: original Danish text` at end of chapter
 
 #### Formatting for readability
 - **Use bullet lists** when the source text enumerates items — lists are much easier to read than inline enumerations
@@ -172,6 +205,7 @@ Each translation agent produces:
 
 1. **`sv.md`** — Full Swedish translation
    - Preserve all sections and paragraphs
+   - Tone follows Meyer's original — do not add pedagogical framing
    - Reference specific pages: (s. XX) or (s. XX–YY)
 
 2. **`summary.md`** — Structured Swedish summary (see template below)
@@ -237,9 +271,9 @@ Möte där alla bymän fattade gemensamma beslut.
 | Kort kärna | 3–5 sentences — quick chapter preview |
 | Historiskt sammanhang | Historical context for the chapter's subject |
 | Sammanfattning av texten | Section-by-section summary using structure codes `[X.I, X.II …]` with full titles. No analysis, only source content. All source headings must appear. |
-| Nyckelbegrepp | Danish term + Swedish explanation + one explanatory sentence |
+| Nyckelbegrepp | 5–10 most important concepts for understanding the chapter. Danish term + Swedish explanation + deeper explanatory text. |
 | Geografiska namn | All places, regions, parishes, hundreds, islands etc. Original Danish spelling. |
-| Begreppslistan | Danish word – Swedish word + explanatory sentence (glossary style) |
+| Begreppslistan | Complete alphabetical list of all Danish terms used in the chapter. Danish word – Swedish word + brief one-line definition (lookup reference). |
 
 ---
 
@@ -257,14 +291,20 @@ After each chapter is translated, a **review agent** checks quality:
 
 | Check | Description |
 |-------|-------------|
-| Completeness | All sections of the Danish original represented in translation |
+| Completeness | All sections of the Danish original represented in translation — no information removed, abbreviated, or simplified |
 | Accuracy | Key legal terms match glossary; spot-check important passages |
+| Faithfulness | Translation preserves all reasoning, examples, and details from original |
 | Page references | Correct printed page numbers (not PDF pages) |
 | Swedish quality | Natural, modern prose; no calque constructions |
+| Footnotes | Kept in original Danish, not translated; numbers unchanged |
+| Latin expressions | Kept in original with Swedish translation in parentheses |
+| Legal text quotes | Reproduced in original language, followed by Swedish translation |
+| Law names | Reproduced exactly as in original |
+| Geographic names | Kept in original Danish form |
 | Summary quality | Captures main arguments and conclusions |
 | Glossary consistency | New terms match previously established translations |
 | Fraktur handling | Citations from older sources correctly transcribed |
-| No untranslated text | No Danish left unmarked in the Swedish output |
+| No untranslated text | No Danish left unmarked in the Swedish output (except footnotes, legal quotes, Latin, and law names as specified) |
 
 ### Review output
 
