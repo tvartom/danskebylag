@@ -1,0 +1,29 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "web",
+	"compatibility_date": "2026-03-20",
+	"pages_build_output_dir": ".output/public",
+	"vars": { "ENV": "dev" },
+	"secrets": { "required": ["JWT_SECRET"] },
+
+	// D1 Database binding.
+	// All environments share the production database.
+	// Local dev is fully isolated via .wrangler/state/.
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "my-database",
+			"database_id": "<DATABASE_ID>",
+			"migrations_dir": "../../packages/database/drizzle"
+		}
+	],
+
+	"env": {
+		"production": {
+			"vars": { "ENV": "production" }
+		},
+		"preview": {
+			"vars": { "ENV": "preview" }
+		}
+	}
+}

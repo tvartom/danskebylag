@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.output/
+.nuxt/
+.nitro/
+.wrangler/
+
+# Turbo
+.turbo/
+
+# Environment
+.env
+.env.local
+.env.*.local
+.dev.vars
+
+# Local D1 databases
+.wrangler/
+
+# Database migrations (auto-generated symlinks for Wrangler)
+wrangler_migration_symlinks/
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Test coverage
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+worker-configuration.d.ts
+
+# Playwright CLI temp files
+.playwright-cli/

@@ -1,0 +1,23 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"target": "ES2024",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"lib": ["ESNext"],
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"declaration": true,
+		"declarationMap": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"exactOptionalPropertyTypes": true
+	}
+}

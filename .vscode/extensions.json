@@ -1,0 +1,7 @@
+{
+	"recommendations": [
+		"biomejs.biome",
+		"Vue.volar",
+		"cloudflare.cloudflare-workers-bindings-extension"
+	]
+}

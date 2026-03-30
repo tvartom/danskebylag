@@ -1,0 +1,29 @@
+{
+	"$schema": "https://turborepo.dev/schema.json",
+	"globalEnv": ["CF_PAGES_BRANCH", "CF_PAGES_COMMIT_SHA"],
+	"tasks": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": [".output/**", "dist/**", ".nuxt/**"]
+		},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"deploy:production": {
+			"dependsOn": ["build"]
+		},
+		"deploy:preview": {
+			"dependsOn": ["build"]
+		},
+		"check": {
+			"cache": false
+		},
+		"generate:types": {
+			"cache": false
+		},
+		"typecheck": {
+			"dependsOn": ["^build"]
+		}
+	}
+}

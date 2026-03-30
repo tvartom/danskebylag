@@ -1,0 +1,14 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "database-migrations",
+	"compatibility_date": "2026-03-20",
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "my-database",
+			"database_id": "<DATABASE_ID>",
+			"preview_database_id": "<PREVIEW_DATABASE_ID>",
+			"migrations_dir": "wrangler_migration_symlinks"
+		}
+	]
+}

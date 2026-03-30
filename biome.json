@@ -1,0 +1,113 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true,
+		"defaultBranch": "main"
+	},
+	"files": {
+		"includes": ["**", "!**/drizzle/meta", "!**/components.d.ts"],
+		"ignoreUnknown": true
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"indentWidth": 1,
+		"lineWidth": 100
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"correctness": {
+				"noInnerDeclarations": "off",
+				"noUnusedImports": "error",
+				"noUnusedVariables": "warn",
+				"useImportExtensions": {
+					"level": "error",
+					"options": {
+						"forceJsExtensions": true
+					}
+				}
+			},
+			"complexity": {
+				"useLiteralKeys": "off"
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "off"
+			},
+			"style": {
+				"useImportType": "error"
+			}
+		}
+	},
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"trailingCommas": "all",
+			"semicolons": "asNeeded"
+		},
+		"globals": [
+			"HTMLRewriter",
+			"Response",
+			"Request",
+			"fetch",
+			"caches",
+			"crypto",
+			"addEventListener",
+			"scheduled",
+			"ExecutionContext",
+			"D1Database",
+			"KVNamespace",
+			"R2Bucket",
+			"DurableObjectNamespace"
+		]
+	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
+	"json": {
+		"parser": {
+			"allowComments": true,
+			"allowTrailingCommas": true
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.vue"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useConst": "off",
+						"useImportType": "off"
+					},
+					"correctness": {
+						"noUnusedVariables": "off",
+						"noUnusedImports": "off"
+					}
+				}
+			}
+		},
+		{
+			"includes": ["**/*.d.ts"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUnusedVariables": "off"
+					}
+				}
+			}
+		}
+	]
+}

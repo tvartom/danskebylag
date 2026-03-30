@@ -1,0 +1,50 @@
+{
+	"name": "@repo/database",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		},
+		"./schema": {
+			"types": "./dist/schema/index.d.ts",
+			"import": "./dist/schema/index.js"
+		},
+		"./validation": {
+			"types": "./dist/validation.d.ts",
+			"import": "./dist/validation.js"
+		},
+		"./client": {
+			"types": "./dist/client.d.ts",
+			"import": "./dist/client.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch",
+		"typecheck": "tsc --noEmit",
+		"db:generate": "drizzle-kit generate",
+		"db:symlinks": "mkdir -p wrangler_migration_symlinks && rm -f wrangler_migration_symlinks/* && find drizzle -name migration.sql -type f | while read f; do d=$(basename $(dirname $f)); ln -sfv \"../drizzle/${d}/migration.sql\" \"wrangler_migration_symlinks/${d}.sql\"; done",
+		"db:migrate:local": "pnpm db:symlinks && wrangler d1 migrations apply my-database --local --persist-to ../../.wrangler/state",
+		"db:migrate:remote": "pnpm db:symlinks && wrangler d1 migrations apply my-database --remote",
+		"db:push": "drizzle-kit push",
+		"db:push:local": "drizzle-kit push --config=drizzle-dev.config.ts",
+		"db:studio": "drizzle-kit studio"
+	},
+	"dependencies": {
+		"drizzle-orm": "^1.0.0-beta"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20260317.1",
+		"@repo/tsconfig": "workspace:*",
+		"@types/node": "^24.10.0",
+		"better-sqlite3": "^12.6.2",
+		"dotenv": "^17.3.1",
+		"drizzle-kit": "^1.0.0-beta",
+		"tsx": "^4.21.0",
+		"typescript": "^5.9.3",
+		"wrangler": "^4.78.0"
+	}
+}
