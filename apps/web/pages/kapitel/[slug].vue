@@ -35,7 +35,7 @@ if (import.meta.client) {
 </script>
 
 <template>
-  <div class="mx-auto px-4 py-8 max-w-3xl 2xl:max-w-none 2xl:flex 2xl:gap-8 2xl:justify-center">
+  <div class="mx-auto px-4 py-8 max-w-3xl 2xl:max-w-full 2xl:flex 2xl:gap-8">
     <div class="w-full max-w-3xl shrink-0">
       <header class="mb-6">
         <p v-if="chapter.number != null" class="text-sm text-muted-color">
@@ -51,7 +51,7 @@ if (import.meta.client) {
       <ChapterNav :slug />
     </div>
 
-    <aside v-if="isWide" class="hidden 2xl:block w-3xl shrink-0 sticky top-4 self-start max-h-screen overflow-y-auto">
+    <aside v-if="isWide" class="hidden 2xl:block flex-1 min-w-0 sticky top-4 self-start max-h-screen overflow-y-auto">
       <ChapterPdf :pdfPages="chapter.pdfPages" />
     </aside>
   </div>
