@@ -86,7 +86,7 @@ Use **camelCase** for prop bindings and event listeners, and **shorthand** when 
 
 ### Cloudflare Pages Build Configuration
 
-The `apps/web` Nuxt app deploys to Cloudflare Pages. The Nitro preset is `cloudflare_pages`, which generates a `_worker.js` bundle inside the output directory so CF Pages can discover the SSR worker without needing to find `wrangler.jsonc` (important in a monorepo where the config is in a subdirectory).
+The `apps/web` Nuxt app deploys to Cloudflare Pages. The Nitro preset is `cloudflare_pages_static`, which produces a fully static site (no `_worker.js` or `_routes.json`). All pages are pre-rendered at build time via `crawlLinks: true`.
 
 ## Project: Danske Bylag
 

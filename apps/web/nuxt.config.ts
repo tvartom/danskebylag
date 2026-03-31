@@ -15,12 +15,11 @@ export default defineNuxtConfig({
 	css: ['~/assets/css/main.css'],
 
 	vite: {
-		// @ts-expect-error: vite 7 / rollup type mismatch (PluginContextMeta.viteVersion) https://github.com/nuxt/nuxt/issues/34384
 		plugins: [tailwindcss()],
 	},
 
 	nitro: {
-		preset: 'cloudflare_pages',
+		preset: 'cloudflare_pages_static',
 		prerender: {
 			crawlLinks: true,
 			routes: ['/'],
@@ -32,7 +31,11 @@ export default defineNuxtConfig({
 			htmlAttrs: { lang: 'sv' },
 			title: 'Danske Bylag — Poul Meyer (1949)',
 			meta: [
-				{ name: 'description', content: 'Danske Bylag av Poul Meyer (1949) — original dansk text, svensk översättning och sammanfattning.' },
+				{
+					name: 'description',
+					content:
+						'Danske Bylag av Poul Meyer (1949) — original dansk text, svensk översättning och sammanfattning.',
+				},
 			],
 		},
 	},
