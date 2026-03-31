@@ -65,7 +65,7 @@ When connecting this repo in the Cloudflare Pages dashboard, use these settings:
 |---------|-------|
 | **Framework preset** | None |
 | **Build command** | `npx turbo run build --filter=@repo/web` |
-| **Build output directory** | `apps/web/.output/public` |
+| **Build output directory** | `apps/web/dist` |
 | **Root directory** | `/` (repository root) |
 | **Node.js version** | `24` (set via environment variable `NODE_VERSION=24`) |
 
@@ -78,7 +78,7 @@ When connecting this repo in the Cloudflare Pages dashboard, use these settings:
 
 ### How It Works
 
-The Nuxt app uses the `cloudflare_pages` Nitro preset (configured in `apps/web/nuxt.config.ts`). This produces a `_worker.js` bundle inside the build output directory (`apps/web/.output/public`), which Cloudflare Pages discovers automatically for SSR — no need for Wrangler to locate `wrangler.jsonc` in the monorepo.
+The Nuxt app uses the `cloudflare_pages` Nitro preset (configured in `apps/web/nuxt.config.ts`). This produces a `_worker.js` bundle inside the build output directory (`apps/web/dist`), which Cloudflare Pages discovers automatically for SSR — no need for Wrangler to locate `wrangler.jsonc` in the monorepo.
 
 The Wrangler config at `apps/web/wrangler.jsonc` defines the project name (`danskebylag-web`), compatibility date, and `production`/`preview` environments.
 

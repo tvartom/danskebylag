@@ -2,7 +2,7 @@
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"name": "danskebylag-web",
 	"compatibility_date": "2026-03-20",
-	"pages_build_output_dir": ".output/public",
+	"pages_build_output_dir": "dist",
 
 	"env": {
 		"production": {},
