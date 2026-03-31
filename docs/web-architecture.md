@@ -110,7 +110,7 @@ layouts/default.vue
   - Tab 3: "Dansk original" → `<ChapterContent :html="daHtml" lang="da" />`
   - Tab 4: "Original PDF" → `<ChapterPdf :pdfPages />` (lazy-loaded iframe of `public/source.pdf` at the chapter's starting page)
 - **`ChapterContent.vue`** — Renders markdown to HTML, applies `prose` typography, sets `lang` attribute
-- **`ChapterPdf.vue`** — Embeds the source PDF in an `<iframe>` with `#page=N` fragment, sized to `80vh`. Parses `pdfPages` string to extract the starting page. Includes a download link.
+- **`ChapterPdf.vue`** — Renders the source PDF pages for the chapter using `pdfjs-dist` canvas rendering. Parses `pdfPages` string to extract start/end page numbers, renders one page at a time to `<canvas>`, and provides prev/next navigation constrained to the chapter's page range. The PDF is served from `public/source.pdf` and the pdf.js worker from `public/pdf.worker.min.mjs`. Includes a download link.
 - **`ChapterNav.vue`** — Previous/Next chapter links
 
 ### Glossary page
