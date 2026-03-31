@@ -49,7 +49,7 @@ worker-configuration.d.ts
 .playwright-cli/
 
 # Danske Bylag content pipeline intermediates
-source.pdf
+/source.pdf
 full-text.txt
 text/
 samples/
