@@ -77,7 +77,8 @@ onUnmounted(() => {
   <div class="flex flex-col items-center gap-3">
     <div class="flex items-center gap-3">
       <PrimeButton
-        label="‹ Förra"
+        icon="pi pi-chevron-left"
+        label="Förra"
         severity="secondary"
         text
         :disabled="currentPage <= startPage"
@@ -88,7 +89,9 @@ onUnmounted(() => {
         <span class="text-xs">({{ currentPage - startPage + 1 }} av {{ totalChapterPages }} i kapitlet)</span>
       </span>
       <PrimeButton
-        label="Nästa ›"
+        icon="pi pi-chevron-right"
+        iconPos="right"
+        label="Nästa"
         severity="secondary"
         text
         :disabled="currentPage >= endPage"
