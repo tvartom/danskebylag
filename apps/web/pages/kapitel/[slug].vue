@@ -1,21 +1,21 @@
 <script setup lang="ts">
-import { chapters } from '~/content/chapters/index.js'
 import { useChapterContent } from '~/composables/useChapterContent.js'
 import { useMarkdown } from '~/composables/useMarkdown.js'
+import { chapters } from '~/content/chapters/index.js'
 
 const route = useRoute()
 const slug = route.params.slug as string
 
-const chapter = chapters.find(c => c.slug === slug)
+const chapter = chapters.find((c) => c.slug === slug)
 if (!chapter) {
-  throw createError({ statusCode: 404, message: 'Kapitlet hittades inte' })
+	throw createError({ statusCode: 404, message: 'Kapitlet hittades inte' })
 }
 
 useHead({
-  title: `${chapter.titleSv} — Danske Bylag`,
-  meta: [
-    { name: 'description', content: `${chapter.titleSv} ur Danske Bylag av Poul Meyer (1949).` },
-  ],
+	title: `${chapter.titleSv} — Danske Bylag`,
+	meta: [
+		{ name: 'description', content: `${chapter.titleSv} ur Danske Bylag av Poul Meyer (1949).` },
+	],
 })
 
 const { da, sv, summary } = await useChapterContent(slug)

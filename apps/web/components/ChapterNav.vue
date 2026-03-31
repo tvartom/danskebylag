@@ -3,9 +3,11 @@ import { chapters } from '~/content/chapters/index.js'
 
 const props = defineProps<{ slug: string }>()
 
-const currentIndex = computed(() => chapters.findIndex(c => c.slug === props.slug))
-const prev = computed(() => currentIndex.value > 0 ? chapters[currentIndex.value - 1] : null)
-const next = computed(() => currentIndex.value < chapters.length - 1 ? chapters[currentIndex.value + 1] : null)
+const currentIndex = computed(() => chapters.findIndex((c) => c.slug === props.slug))
+const prev = computed(() => (currentIndex.value > 0 ? chapters[currentIndex.value - 1] : null))
+const next = computed(() =>
+	currentIndex.value < chapters.length - 1 ? chapters[currentIndex.value + 1] : null,
+)
 </script>
 
 <template>

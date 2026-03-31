@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const props = defineProps<{
-  daHtml: string
-  svHtml: string
-  summaryHtml: string
+	daHtml: string
+	svHtml: string
+	summaryHtml: string
 }>()
 
 const activeTab = ref('summary')

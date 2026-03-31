@@ -2,7 +2,7 @@
 import { chapters } from '~/content/chapters/index.js'
 
 useHead({
-  title: 'Danske Bylag — Poul Meyer (1949)',
+	title: 'Danske Bylag — Poul Meyer (1949)',
 })
 </script>
 

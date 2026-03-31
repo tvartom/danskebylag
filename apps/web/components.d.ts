@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     PrimeColumn: typeof import('primevue/column')['default']
     PrimeDataTable: typeof import('primevue/datatable')['default']
+    PrimeDrawer: typeof import('primevue/drawer')['default']
     PrimeInputText: typeof import('primevue/inputtext')['default']
     PrimeTab: typeof import('primevue/tab')['default']
     PrimeTabList: typeof import('primevue/tablist')['default']

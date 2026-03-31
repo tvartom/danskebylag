@@ -6,11 +6,14 @@ useHead({ title: 'Ordlista — Danske Bylag' })
 const search = ref('')
 
 const filtered = computed(() => {
-  const q = search.value.toLowerCase()
-  if (!q) return glossary
-  return glossary.filter(
-    e => e.da.toLowerCase().includes(q) || e.sv.toLowerCase().includes(q) || e.definition.toLowerCase().includes(q),
-  )
+	const q = search.value.toLowerCase()
+	if (!q) return glossary
+	return glossary.filter(
+		(e) =>
+			e.da.toLowerCase().includes(q) ||
+			e.sv.toLowerCase().includes(q) ||
+			e.definition.toLowerCase().includes(q),
+	)
 })
 </script>
 
