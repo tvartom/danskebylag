@@ -105,10 +105,12 @@ layouts/default.vue
 
 ### Chapter page
 - **`ChapterTabs.vue`** — PrimeVue `Tabs` component:
-  - Tab 1: "Dansk original" → `<ChapterContent :markdown="da" lang="da" />`
-  - Tab 2: "Svensk översättning" → `<ChapterContent :markdown="sv" lang="sv" />`
-  - Tab 3: "Sammanfattning" → `<ChapterContent :markdown="summary" lang="sv" />` (includes kort kärna, historiskt sammanhang, sammanfattning, nyckelbegrepp, geografiska namn, begreppslista)
+  - Tab 1: "Sammanfattning" → `<ChapterContent :html="summaryHtml" lang="sv" />`
+  - Tab 2: "Svensk översättning" → `<ChapterContent :html="svHtml" lang="sv" />`
+  - Tab 3: "Dansk original" → `<ChapterContent :html="daHtml" lang="da" />`
+  - Tab 4: "Original PDF" → `<ChapterPdf :pdfPages />` (lazy-loaded iframe of `public/source.pdf` at the chapter's starting page)
 - **`ChapterContent.vue`** — Renders markdown to HTML, applies `prose` typography, sets `lang` attribute
+- **`ChapterPdf.vue`** — Embeds the source PDF in an `<iframe>` with `#page=N` fragment, sized to `80vh`. Parses `pdfPages` string to extract the starting page. Includes a download link.
 - **`ChapterNav.vue`** — Previous/Next chapter links
 
 ### Glossary page

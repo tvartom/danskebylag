@@ -3,6 +3,7 @@ const props = defineProps<{
 	daHtml: string
 	svHtml: string
 	summaryHtml: string
+	pdfPages: string
 }>()
 
 const activeTab = ref('summary')
@@ -14,6 +15,7 @@ const activeTab = ref('summary')
       <PrimeTab value="summary">Sammanfattning</PrimeTab>
       <PrimeTab value="sv">Svensk översättning</PrimeTab>
       <PrimeTab value="da">Dansk original</PrimeTab>
+      <PrimeTab value="pdf">Original PDF</PrimeTab>
     </PrimeTabList>
     <PrimeTabPanels>
       <PrimeTabPanel value="summary">
@@ -24,6 +26,9 @@ const activeTab = ref('summary')
       </PrimeTabPanel>
       <PrimeTabPanel value="da">
         <ChapterContent :html="props.daHtml" lang="da" />
+      </PrimeTabPanel>
+      <PrimeTabPanel value="pdf">
+        <ChapterPdf v-if="activeTab === 'pdf'" :pdfPages="props.pdfPages" />
       </PrimeTabPanel>
     </PrimeTabPanels>
   </PrimeTabs>

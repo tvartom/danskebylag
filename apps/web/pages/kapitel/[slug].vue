@@ -37,7 +37,7 @@ const summaryHtml = useMarkdown(summary)
       </p>
     </header>
 
-    <ChapterTabs :daHtml :svHtml :summaryHtml />
+    <ChapterTabs :daHtml :svHtml :summaryHtml :pdfPages="chapter.pdfPages" />
     <ChapterNav :slug />
   </div>
 </template>
