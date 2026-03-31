@@ -48,6 +48,7 @@ export default defineNuxtConfig({
 			theme: {
 				preset: Aura,
 				options: {
+					darkModeSelector: false,
 					cssLayer: {
 						name: 'primevue',
 						order: 'theme, base, primevue',
