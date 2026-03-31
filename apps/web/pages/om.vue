@@ -18,7 +18,7 @@ useHead({ title: 'Om projektet — Danske Bylag' })
 
       <h2>Om denna webbplats</h2>
       <p>
-        Webbplatsen presenterar varje kapitel i tre vyer:
+        Webbplatsen presenterar varje kapitel med tre extra vyer:
       </p>
       <ul>
         <li><strong>Dansk original</strong> — den danska texten extraherad från PDF-originalet</li>

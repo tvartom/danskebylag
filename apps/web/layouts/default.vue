@@ -2,6 +2,8 @@
 const sidebarVisible = ref(false)
 
 const route = useRoute()
+const showSidebar = computed(() => route.path !== '/')
+
 watch(
 	() => route.fullPath,
 	() => {
@@ -12,11 +14,11 @@ watch(
 
 <template>
   <div class="min-h-screen flex flex-col bg-surface-0 text-surface-900">
-    <AppHeader @toggleSidebar="sidebarVisible = !sidebarVisible" />
+    <AppHeader :showSidebarToggle="showSidebar" @toggleSidebar="sidebarVisible = !sidebarVisible" />
 
     <div class="flex flex-1">
       <!-- Desktop sidebar -->
-      <aside class="hidden lg:block w-64 shrink-0 border-r border-surface-200 sticky top-0 h-screen overflow-y-auto py-6 px-2">
+      <aside v-if="showSidebar" class="hidden lg:block w-64 shrink-0 border-r border-surface-200 sticky top-0 h-screen overflow-y-auto py-6 px-2">
         <SidebarToc />
       </aside>
 
@@ -30,7 +32,7 @@ watch(
     </div>
 
     <!-- Mobile drawer -->
-    <PrimeDrawer v-model:visible="sidebarVisible" position="left" :modal="true" class="w-72!">
+    <PrimeDrawer v-if="showSidebar" v-model:visible="sidebarVisible" position="left" :modal="true" class="w-72!">
       <template #header>
         <span class="font-semibold text-lg">Navigation</span>
       </template>

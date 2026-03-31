@@ -1,4 +1,5 @@
 <script setup lang="ts">
+withDefaults(defineProps<{ showSidebarToggle?: boolean }>(), { showSidebarToggle: true })
 defineEmits<{ toggleSidebar: [] }>()
 </script>
 
@@ -7,6 +8,7 @@ defineEmits<{ toggleSidebar: [] }>()
     <nav class="px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2">
         <button
+          v-if="showSidebarToggle"
           class="lg:hidden inline-flex items-center justify-center rounded-md p-2 text-muted-color hover:text-primary hover:bg-surface-100 transition-colors"
           aria-label="Öppna innehållsförteckning"
           @click="$emit('toggleSidebar')"

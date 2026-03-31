@@ -19,7 +19,7 @@ useHead({
     <section class="mb-8">
       <p class="text-base leading-relaxed text-surface-700">
         Denna webbplats presenterar Poul Meyers doktorsavhandling <em>Danske Bylag</em> (1949)
-        i tre vyer per kapitel: den danska originaltexten, en svensk översättning och en
+        med tre extra vyer per kapitel: den danska originaltexten, en svensk översättning och en
         strukturerad svensk sammanfattning.
       </p>
     </section>
