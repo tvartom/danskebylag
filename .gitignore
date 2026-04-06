@@ -54,4 +54,6 @@ full-text.txt
 text/
 samples/
 *.png
+!apps/web/public/pwa-*.png
+!apps/web/public/apple-touch-icon-*.png
 apps/web/content/chapters/*/raw.txt
